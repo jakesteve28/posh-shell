@@ -25,3 +25,7 @@ void forkIt(char **args, int background){
     }
 }
 
+void runbg(char ** args, int background){
+    
+}
+

@@ -8,7 +8,7 @@
             "name": "(gdb) Attach",
             "type": "cppdbg",
             "request": "attach",
-            "program": "${workspaceFolder}/cscd340Lab7",
+            "program": "${workspaceFolder}/posh",
             "processId": "${command:pickProcess}",
             "MIMode": "gdb",
             "setupCommands": [

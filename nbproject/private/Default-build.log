@@ -1,5 +1,0 @@
-gcc    -c -o tokenize/makeArgs.o tokenize/makeArgs.c
-gcc    -c -o utils/myUtils.o utils/myUtils.c
-gcc    -c -o process/process.o process/process.c
-gcc    -c -o pipes/pipes.o pipes/pipes.c
-gcc -g cscd340Lab6.c ./tokenize/makeArgs.o ./utils/myUtils.o ./process/process.o ./pipes/pipes.o -o lab6
