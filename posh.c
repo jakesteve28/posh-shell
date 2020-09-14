@@ -89,7 +89,7 @@ static void execpipes(char * cmd){
 
 }
 
-static void runcmd(char * cmd){
+static void runcmd(char * cmd, int execbg){
     char ** argv = NULL;
     argc = makeargs(cmd, &argv);
     if(argc != -1)
@@ -105,12 +105,14 @@ int main()
     char * command_string = (char*)calloc(256, sizeof(char));
     fgets(command_string, MAX_COMMAND, stdin);
     strip(command_string);
+    int bg = 0;
     while(strcmp(command_string, "exit") != 0){
+        bg = countchar(command_string, '&');
         pipecount = countchar(command_string, '|');    
-        if(pipecount < 1) runcmd(command_string);
+        if(pipecount < 1) runcmd(command_string, bg);
         else execpipes(command_string);
         printf("\r\n%s", DEFAULT_MESSAGE);
-        char * command_res = fgets(command_string, MAX_COMMAND, stdin);
+        fgets(command_string, MAX_COMMAND, stdin);
         strip(command_string);
     }
     return 0;

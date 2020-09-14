@@ -2,5 +2,8 @@ posh
 *.o
 .poshrc
 .posh_history
+.project
+shell.workspace
+.vscode
 
 
