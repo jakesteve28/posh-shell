@@ -1,0 +1,6 @@
+posh 
+*.o
+.poshrc
+.posh_history
+
+
