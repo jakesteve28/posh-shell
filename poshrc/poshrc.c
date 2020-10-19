@@ -41,12 +41,7 @@ hashmap * getglobs(FILE * poshrcfile){
     char buf[256];
     hashmap globals = newhashmap();
     while(fgets(buf, 256, poshrcfile) != NULL){
-        // reti = regcomp(&regex, POSHRC_FILE_OPEN_REGEX, 0);
-        // if(reti){
-        //     perror(POSHRC_FILE_LINE_ERROR);
-        // }   
-        //reti = regexec(&regex, buf, 0, NULL, 0);
-        int regex_res = 1;//classifyregex(reti);
+        int regex_res = 1;
         if(regex_res){
             char * split = "=";
             char * key = strtok(buf, split);

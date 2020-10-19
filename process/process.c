@@ -24,7 +24,6 @@ void forkIt(char **args, int background){
         waitpid(pid, &status, 0);
     }
 }
-
 void runbg(char ** args, int background){
     
 }
