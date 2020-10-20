@@ -36,4 +36,9 @@
     bool check_redirect_in();
     void strip_redirects();
     void check_redirects(char * cmd);
+    void setup_redirect(char * cmd, int pos, int direction);
+    void clear_ws(char * cmd);
+    void clear_ntc(char * cmd, int len);
+    int get_substring_pos(const char * substr, const char * str);
+
 #endif

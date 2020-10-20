@@ -79,3 +79,11 @@ LinkedList * gethistory(FILE * historyfile){
     }
     return history;
 }
+
+void addhistory(LinkedList * list, FILE * historyfile, char * cmd){
+    Node * node = (Node*)malloc(sizeof(Node));
+    node->data = (char*)calloc(512, sizeof(char));
+    strcpy(node->data, cmd);
+    addLast(list, node);
+    fprintf(historyfile, "%s\n", cmd);
+}

@@ -12,6 +12,7 @@
     FILE * openrcfile(char * filename);
     hashmap * getglobs(FILE * poshrcfile);
     LinkedList * gethistory(FILE * historyfile);
+    void addhistory(LinkedList * list, FILE * historyfile, char * cmd);
     char * POSHRC = ".poshrc";
     char * POSHRC_CREATE_NEW = "Creating new file...\r\n";
     char * POSHRC_FILE_OPEN_REGEX = "[[:alnum:]]{125}=[[:alnum:]]{125}";

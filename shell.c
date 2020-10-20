@@ -1,4 +1,9 @@
 #include "shell.h"
+#include "poshrc/poshrc.c"
+
+void printnode(void * n){
+    printf("%s", (char*)n);
+}
 
 int command(int input, bool first, bool last) {
     pid_t pid;
@@ -12,7 +17,6 @@ int command(int input, bool first, bool last) {
     }
 	if (0 == (pid = fork())) {
 		if (first && !last && input == 0) {
-            printf("WORKING");
             if(redirect_in){
                 int fin = open(filename_in, O_RDONLY, 0);
                 dup2(fin, STDIN_FILENO);
@@ -62,6 +66,8 @@ void wait_all(int n) {
 }
 
 int main() {
+    FILE * historyfile = fopen(".posh_history", "a+");
+    LinkedList * history = gethistory(historyfile);
 	while (true) {
 		printf("posh $ ");
         redirect_out = false;
@@ -74,6 +80,11 @@ int main() {
 		int input = 0;
 		bool first = true;
 		char * cmd = line;
+        if(0 == strcmp(cmd, "history\n")){
+            printList(history, printnode);
+            continue;
+        }
+        addhistory(history, historyfile, cmd);
         check_redirects(cmd);
 		char * next_pipe = strchr(cmd, '|');
 		while (next_pipe != NULL) {
